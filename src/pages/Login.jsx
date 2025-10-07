@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 
-
+const handelLogin=(e)=>{
+  e.preventDefault()
+}
 const Login = () => {
   const navigate = useNavigate();
 const handelCancel=()=>{
@@ -10,7 +12,7 @@ const handelCancel=()=>{
   return (
     <div>
          <div className='flex items-center justify-center py-30 inset-0 bg-black/50 backdrop-blur-md'>
-        <form onSubmit='{handelLogin}' action="" method="post">
+        <form onSubmit={(e)=>{handelLogin(e)}}>
       
       <div className='flex items-center flex-col bg-white w-[500px] h-[600px]  text-black border-1 rounded-[20px]'>
         <div className="flex justify-center mt-4">
