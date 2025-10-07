@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+body{
+    color: black;
+    background-image: url('/images/back_drop.jpg');
+  background-size: cover;      /* Ensures the image covers the whole section */
+  background-position: center; /* Centers the image */
+  background-attachment: fixed;/* This is the key to keep it fixed */
+  min-height: 100vh;           /* Takes full viewport height */
+  width: 100%;
+}
+
+ 
