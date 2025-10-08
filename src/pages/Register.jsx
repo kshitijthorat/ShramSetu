@@ -11,6 +11,8 @@ const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [userFname, setUserFname] = useState('')
   const [userLname, setUserLname] = useState('')
   const [userPhone, setUserPhone] = useState('')
@@ -71,8 +73,9 @@ const submitHandler = (e)=>{
     setUserPhone('')
     setUserEmail('')
     setUserPassword('')
+    navigate('/login')
 }
-  const navigate = useNavigate();
+ 
 const handelCancel=()=>{
   navigate('/');
 }
@@ -103,7 +106,7 @@ const handelCancel=()=>{
         <h2>Password</h2>
         <input value={userPassword} onChange={(e)=>{setUserPassword(e.target.value)}}className='flex border-1 border-gray-200 rounded-[10px] w-full h-[40px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-grey-300 transition duration-300' type="text" placeholder='password'/>
         <div className='flex ml-3 mt-6 p-2 gap-10 items-center justify-center'>
-        <button type='submit' className='bg-blue-500 w-fit p-3 pr-4 pl-4 rounded-2xl active:scale-90 hover:bg-blue-200'>Submit</button>
+        <button  type='submit' className='bg-blue-500 w-fit p-3 pr-4 pl-4 rounded-2xl active:scale-90 hover:bg-blue-200'>Submit</button>
         <button onClick={handelCancel} type='button' className='bg-gray-300 w-fit p-3 pr-4 pl-4 rounded-2xl active:scale-90 hover:bg-gray-500'>Cancel</button>
 
         </div>
