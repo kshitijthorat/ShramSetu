@@ -6,62 +6,72 @@ import { useNavigate, useSearchParams } from 'react-router-dom';
 
 const USER_REGEX = /^[A-z][A-z0-9-_]{3,23}$/
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/
-
+const PHONE_REGEX = /^[0-9]{10}$/;
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 
 const Register = () => {
-   {/*focus on user input*/}
-  const userRef = useRef()
-    {/*focus on error*/}
-  const errRef = useRef()
+  const [userFname, setUserFname] = useState('')
+  const [userLname, setUserLname] = useState('')
+  const [userPhone, setUserPhone] = useState('')
+  const [userEmail, setUserEmail] = useState('')
+  const [userPassword, setUserPassword] = useState('')
+  const [erros, setErrors] = useState({global:''})
+  const userRef = useRef(null)
 
-{/*setting username */}
-  const [username, setUsername] = useState('')
-  const [validName, setValidName] = useState(false)
-  const [userFocus, setUserFocus] = useState(false)
-  {/*setting password */}
-  const [pwd, setPwd] = useState('')
-  const [validPwd, setvalidPwd] = useState(false)
-  const [PwdFocus, setPwdFocus] = useState(false)
-   {/*setting matched password */}
-  const [matchPwd, setMatchPwd] = useState('')
-  const [validMatchPwd, setValidMatchPwd] = useState(false)
-  const [MatchPwdFocus, setMatchPwdFocus] = useState(false)
-
-  const [errMsg, setErrMsg] = useState('')
-  const [success, setSuccess] = useState(false)
-
-{/*setting fouce on user*/ }
-  useEffect(()=>{
-    userRef.current.focus()
-  },[])
-  {/*username check*/ }
-  useEffect(()=>{
-    const result = USER_REGEX.test(username)
-    console.log(result)
-    console.log(username)
-    setValidName(result)
-  },[username])
-{/*Password check*/ }
-  useEffect(()=>{
-    const result = PWD_REGEX.test(pwd)
-    console.log(result)
-    console.log(pwd)
-    setvalidPwd(result)
-    const match = matchPwd===pwd
-    setValidMatchPwd(match)
-  },[pwd,matchPwd])
-
- useEffect(()=>{
-    setErrMsg('')
-  },[username,pwd,matchPwd])
-
-
-  const submitHandler = (e)=>{
-    e.preventDefault()
-    console.log(username)
-    setUsername('')
+ 
+useEffect(()=>{
+  if(userRef.current){
+    userRef.current.focus();
   }
+},[])
+useEffect(() => {
+  if (erros.global) {
+    const timer = setTimeout(() => {
+      setErrors({ global: '' });
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }
+}, [erros.global]);
+
+const submitHandler = (e)=>{
+    e.preventDefault()
+    if(!USER_REGEX.test(userFname)){
+      setErrors({global:'invalid first name'})
+      return
+    }
+    if(!USER_REGEX.test(userLname)){
+      setErrors({global:'invalid last name'})
+      return
+    }
+    if(!PHONE_REGEX.test(userPhone)){
+      setErrors({global:'invalid phone number'})
+      return
+    }
+    if(!EMAIL_REGEX.test(userEmail)){
+     setErrors({global:'invalid email'})
+      return
+    }
+    if(!PWD_REGEX.test(userPassword)){
+      setErrors({global:'password must contain 8 to 24 characters which include uppercase and lowercase letters, a number and a special character' })
+      return
+    }
+
+    setErrors({global:'form submitted successfully'})
+    console.log({userFname,userLname,userPhone,userEmail,userPassword})
+    console.log(userFname)
+    console.log(userLname)
+    console.log(userPhone)
+    console.log(userEmail)
+    console.log(userPassword)
+
+    setUserFname('')
+    setUserLname('')
+    setUserPhone('')
+    setUserEmail('')
+    setUserPassword('')
+}
   const navigate = useNavigate();
 const handelCancel=()=>{
   navigate('/');
@@ -83,22 +93,24 @@ const handelCancel=()=>{
         
         <div className='flex flex-col  gap-3 w-full p-10 text-lg'>
         <h2>First name</h2>
-        <input value={username} onChange={(e)=>{setUsername(e.target.value)}} className='flex border-1  border-gray-200 rounded-[10px] w-full h-[40px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-grey-300 transition duration-300' type="text" placeholder='what is your name?'/>
+        <input value={userFname} onChange={(e)=>{setUserFname(e.target.value)}} className='flex border-1  border-gray-200 rounded-[10px] w-full h-[40px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-grey-300 transition duration-300' type="text" placeholder='what is your name?'/>
         <h2>Last name</h2>
-        <input className='flex border-1 border-gray-200 rounded-[10px] w-full h-[40px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-grey-300 transition duration-300' type="text" placeholder='Please enter your surname?'/>
+        <input value={userLname} onChange={(e)=>{setUserLname(e.target.value)}} className='flex border-1 border-gray-200 rounded-[10px] w-full h-[40px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-grey-300 transition duration-300' type="text" placeholder='Please enter your surname?'/>
         <h2>Phone</h2>
-        <input className='flex border-1 border-gray-200 rounded-[10px] w-full h-[40px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-grey-300 transition duration-300' type="number" placeholder='ex: 1234567891?'/>
+        <input value={userPhone} onChange={(e)=>{setUserPhone(e.target.value)}} className='flex border-1 border-gray-200 rounded-[10px] w-full h-[40px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-grey-300 transition duration-300' type="number" placeholder='ex: 1234567891?'/>
         <h2>Email</h2>
-        <input className='flex border-1 border-gray-200 rounded-[10px] w-full h-[40px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-grey-300 transition duration-300' type="email" placeholder='not complecery'/>
+        <input value={userEmail} onChange={(e)=>{setUserEmail(e.target.value)}} className='flex border-1 border-gray-200 rounded-[10px] w-full h-[40px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-grey-300 transition duration-300' type="email" placeholder='not complecery'/>
         <h2>Password</h2>
-        <input className='flex border-1 border-gray-200 rounded-[10px] w-full h-[40px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-grey-300 transition duration-300' type="email" placeholder='password'/>
+        <input value={userPassword} onChange={(e)=>{setUserPassword(e.target.value)}}className='flex border-1 border-gray-200 rounded-[10px] w-full h-[40px] shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-grey-300 transition duration-300' type="text" placeholder='password'/>
         <div className='flex ml-3 mt-6 p-2 gap-10 items-center justify-center'>
         <button type='submit' className='bg-blue-500 w-fit p-3 pr-4 pl-4 rounded-2xl active:scale-90 hover:bg-blue-200'>Submit</button>
-        <button onClick={handelCancel} type='submit' className='bg-gray-300 w-fit p-3 pr-4 pl-4 rounded-2xl active:scale-90 hover:bg-gray-500'>Cancel</button>
+        <button onClick={handelCancel} type='button' className='bg-gray-300 w-fit p-3 pr-4 pl-4 rounded-2xl active:scale-90 hover:bg-gray-500'>Cancel</button>
+
         </div>
         </div>
     </div>
     </form>
+     {erros.global && <div className='bg-white ml-10 mb-[500px] w-[200px] h-[50px] flex items-center justify-center rounded-2xl border-1 border-blue-500 text-black text-center'>{erros.global}</div>  }
     </div>
   )
 }

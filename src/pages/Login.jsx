@@ -1,10 +1,47 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 
-const handelLogin=(e)=>{
-  e.preventDefault()
-}
 const Login = () => {
+  const handelLogin=(e)=>{
+    e.preventDefault()
+  
+    if(!USER_REGEX.test(userFname)){
+      setErrors({global:'invalid first name'})
+      return
+    }
+    if(!USER_REGEX.test(userLname)){
+      setErrors({global:'invalid last name'})
+      return
+    }
+    if(!PHONE_REGEX.test(userPhone)){
+      setErrors({global:'invalid phone number'})
+      return
+    }
+    if(!EMAIL_REGEX.test(userEmail)){
+     setErrors({global:'invalid email'})
+      return
+    }
+    if(!PWD_REGEX.test(userPassword)){
+      setErrors({global:'password must contain 8 to 24 characters which include uppercase and lowercase letters, a number and a special character' })
+      return
+    }
+
+    setErrors({global:'form submitted successfully'})
+    console.log({userFname,userLname,userPhone,userEmail,userPassword})
+    console.log(userFname)
+    console.log(userLname)
+    console.log(userPhone)
+    console.log(userEmail)
+    console.log(userPassword)
+
+    setUserFname('')
+    setUserLname('')
+    setUserPhone('')
+    setUserEmail('')
+    setUserPassword('')
+
+    
+  }
   const navigate = useNavigate();
 const handelCancel=()=>{
   navigate('/');
