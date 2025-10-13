@@ -1,8 +1,126 @@
 import React from 'react'
+import UserNavbar from './UserNavbar'
+import UserCard from '../../components/UserCard';
 
 const UserHome = () => {
+
+    const posts = [
+  {
+    id: 1,
+    name: "Rahul Patil",
+    type: "Looking for Work",
+    role: "Electrician",
+    location: "Pune, Maharashtra",
+    description:
+      "Experienced electrician available for residential and commercial work. Can handle wiring, repairs, and installations.",
+    posted: "2 days ago",
+    avatar: "https://i.pravatar.cc/150?img=1",
+  },
+  {
+    id: 2,
+    name: "Group: Shakti Painters",
+    type: "Group Available",
+    role: "Painters (5 Members)",
+    location: "Mumbai, Maharashtra",
+    description:
+      "Group of 5 skilled painters available for building and home painting contracts.",
+    posted: "1 day ago",
+    avatar: "https://i.pravatar.cc/150?img=5",
+  },
+  {
+    id: 3,
+    name: "Anita Joshi",
+    type: "Hiring Worker",
+    role: "Plumber Needed",
+    location: "Nashik, Maharashtra",
+    description:
+      "Need a reliable plumber for a bathroom renovation project. Work for 2 weeks.",
+    posted: "5 hours ago",
+    avatar: "https://i.pravatar.cc/150?img=8",
+  },
+  {
+    id: 4,
+    name: "Anita Joshi",
+    type: "Hiring Worker",
+    role: "Plumber Needed",
+    location: "Nashik, Maharashtra",
+    description:
+      "Need a reliable plumber for a bathroom renovation project. Work for 2 weeks.",
+    posted: "5 hours ago",
+    avatar: "https://i.pravatar.cc/150?img=8",
+  },
+  {
+    id: 5,
+    name: "Anita Joshi",
+    type: "Hiring Worker",
+    role: "Plumber Needed",
+    location: "Nashik, Maharashtra",
+    description:
+      "Need a reliable plumber for a bathroom renovation project. Work for 2 weeks.",
+    posted: "5 hours ago",
+    avatar: "https://i.pravatar.cc/150?img=8",
+  },
+  {
+    id: 6,
+    name: "Anita Joshi",
+    type: "Hiring Worker",
+    role: "Plumber Needed",
+    location: "Nashik, Maharashtra",
+    description:
+      "Need a reliable plumber for a bathroom renovation project. Work for 2 weeks.",
+    posted: "5 hours ago",
+    avatar: "https://i.pravatar.cc/150?img=8",
+  },
+  {
+    id: 7,
+    name: "Anita Joshi",
+    type: "Hiring Worker",
+    role: "Plumber Needed",
+    location: "Nashik, Maharashtra",
+    description:
+      "Need a reliable plumber for a bathroom renovation project. Work for 2 weeks.",
+    posted: "5 hours ago",
+    avatar: "https://i.pravatar.cc/150?img=8",
+  },
+
+  {
+    id: 8,
+    name: "Anita Joshi",
+    type: "Hiring Worker",
+    role: "Plumber Needed",
+    location: "Nashik, Maharashtra",
+    description:
+      "Need a reliable plumber for a bathroom renovation project. Work for 2 weeks.",
+    posted: "5 hours ago",
+    avatar: "https://i.pravatar.cc/150?img=8",
+  },
+  {
+    id: 9,
+    name: "Anita Joshi",
+    type: "Hiring Worker",
+    role: "Plumber Needed",
+    location: "Nashik, Maharashtra",
+    description:
+      "Need a reliable plumber for a bathroom renovation project. Work for 2 weeks.",
+    posted: "5 hours ago",
+    avatar: "https://i.pravatar.cc/150?img=8",
+  },
+];
+
   return (
-    <div>UserHome</div>
+    <div>
+        <UserNavbar/>
+        <div className="h-screen bg-[#f4f2ee] text-gray-800 w-full flex flex-col">
+            <h1 className="text-3xl font-bold mb-6">👷‍♂️ Work & Group Listings</h1>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {posts.map((post) => (
+          <UserCard key={post.id} post={post} />
+        ))}
+      </div>
+      </div>
+      <div className='flex rounded-full sticky bottom-5 '>click</div>
+    </div>
   )
 }
 
