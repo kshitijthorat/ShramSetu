@@ -6,6 +6,7 @@ import Login from './pages/Login'
 import UserProfile from './pages/User/UserProfile'
 import UserHome from './pages/User/UserHome'
 import UserPost from './pages/User/UserPost'
+import Setting from './pages/Setting'
 
 
 const App = () => {
@@ -22,6 +23,8 @@ const App = () => {
 
         <Route path='/userProfile' element={<UserProfile/>}/>
         <Route path='/userpost' element={<UserPost/>}/>
+        <Route path='/settings' element={<Setting/>}/>
+
 
 
 

@@ -61,9 +61,9 @@ const UserProfile = () => {
             <button className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition">
               Edit Profile
             </button>
-            <button className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition">
+            <Link to='/settings' className="px-[9.4rem] py-2 rounded-lg bg-white/10 hover:bg-white/20 transition">
               Settings
-            </button>
+            </Link>
             <Link to='/login' className="px-[9.5rem] py-2 rounded-lg bg-white/10 hover:bg-red-500/70 hover:text-white transition">
               Logout
             </Link>

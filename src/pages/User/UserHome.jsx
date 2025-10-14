@@ -62,51 +62,7 @@ const UserHome = () => {
     posted: "5 hours ago",
     avatar: "https://i.pravatar.cc/150?img=8",
   },
-  {
-    id: 6,
-    name: "Anita Joshi",
-    type: "Hiring Worker",
-    role: "Plumber Needed",
-    location: "Nashik, Maharashtra",
-    description:
-      "Need a reliable plumber for a bathroom renovation project. Work for 2 weeks.",
-    posted: "5 hours ago",
-    avatar: "https://i.pravatar.cc/150?img=8",
-  },
-  {
-    id: 7,
-    name: "Anita Joshi",
-    type: "Hiring Worker",
-    role: "Plumber Needed",
-    location: "Nashik, Maharashtra",
-    description:
-      "Need a reliable plumber for a bathroom renovation project. Work for 2 weeks.",
-    posted: "5 hours ago",
-    avatar: "https://i.pravatar.cc/150?img=8",
-  },
-
-  {
-    id: 8,
-    name: "Anita Joshi",
-    type: "Hiring Worker",
-    role: "Plumber Needed",
-    location: "Nashik, Maharashtra",
-    description:
-      "Need a reliable plumber for a bathroom renovation project. Work for 2 weeks.",
-    posted: "5 hours ago",
-    avatar: "https://i.pravatar.cc/150?img=8",
-  },
-  {
-    id: 9,
-    name: "Anita Joshi",
-    type: "Hiring Worker",
-    role: "Plumber Needed",
-    location: "Nashik, Maharashtra",
-    description:
-      "Need a reliable plumber for a bathroom renovation project. Work for 2 weeks.",
-    posted: "5 hours ago",
-    avatar: "https://i.pravatar.cc/150?img=8",
-  },
+  
 ];
 
   return (

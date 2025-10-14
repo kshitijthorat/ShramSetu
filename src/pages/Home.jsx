@@ -2,6 +2,8 @@ import React from 'react'
 import Cards from '../components/Cards'
 import Scroll from '../components/Scroll';
 import Footer from '../components/Footer'
+import { useTranslation } from "react-i18next";
+
 import { useLocation } from 'react-router-dom';
 
 import Navbar from '../components/Navbar';
