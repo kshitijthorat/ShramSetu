@@ -1,6 +1,7 @@
 import React from 'react'
 import UserNavbar from './UserNavbar'
 import HistoryCard from '../../components/HistoryCard'
+import { Link } from 'react-router-dom';
 
 const userHistory = [
   {
@@ -63,9 +64,9 @@ const UserProfile = () => {
             <button className="px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition">
               Settings
             </button>
-            <button className="px-4 py-2 rounded-lg bg-white/10 hover:bg-red-500/70 hover:text-white transition">
+            <Link to='/login' className="px-[9.5rem] py-2 rounded-lg bg-white/10 hover:bg-red-500/70 hover:text-white transition">
               Logout
-            </button>
+            </Link>
           </div>
         </div>
 

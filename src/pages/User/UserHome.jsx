@@ -1,6 +1,8 @@
 import React from 'react'
 import UserNavbar from './UserNavbar'
+import { FaPlus } from 'react-icons/fa';
 import UserCard from '../../components/UserCard';
+import { Link } from 'react-router-dom';
 
 const UserHome = () => {
 
@@ -119,7 +121,14 @@ const UserHome = () => {
         ))}
       </div>
       </div>
-      <div className='flex rounded-full sticky bottom-5 '>click</div>
+     <div className="fixed bottom-6 right-6 z-50">
+  <Link
+    to="/userpost"
+    className="bg-blue-500 hover:bg-blue-400 text-white p-4 rounded-full shadow-lg hover:shadow-xl active:scale-95 transition-all duration-200 flex items-center justify-center"
+  >
+    <FaPlus className="text-2xl" />
+  </Link>
+</div>
     </div>
   )
 }
