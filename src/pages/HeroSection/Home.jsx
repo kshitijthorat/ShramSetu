@@ -1,12 +1,12 @@
 import React from 'react'
-import Cards from '../components/Cards'
-import Scroll from '../components/Scroll';
-import Footer from '../components/Footer'
+import Cards from '../../components/Cards'
+import Scroll from '../../components/Scroll';
+import Footer from '../../components/Footer'
 import { useTranslation } from "react-i18next";
 import { useLocation } from 'react-router-dom';
 
-import Navbar from '../components/Navbar';
-import BlurText from '../components/BlurText';
+import Navbar from '../../components/Navbar';
+import BlurText from '../../components/BlurText';
 const workers = [
   { image: "/images/bg.png", title: "Plumber", info: "Expert in repairs" },
   { image: "/images/back_drop.jpg", title: "Carpenter", info: "Furniture & fittings" },

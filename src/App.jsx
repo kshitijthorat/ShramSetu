@@ -1,15 +1,17 @@
 import React, { useEffect } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import Home from "./pages/Home";
-import Register from "./pages/Register";
-import Login from "./pages/Login";
+import Home from "./pages/HeroSection/Home";
+import Register from "./pages/HeroSection/Register";
+import Login from "./pages/HeroSection/Login";
 import UserProfile from "./pages/User/UserProfile";
 import UserHome from "./pages/User/UserHome";
 import UserPost from "./pages/User/UserPost";
-import Setting from "./pages/Setting";
+import Setting from "./pages/HeroSection/Setting";
 import ViewDetails from "./pages/User/ViewDetails";
 import NProgress from "nprogress";
+import AdminLogin from "./pages/Admin/adminLogin";
 import "nprogress/nprogress.css";
+
 
 const App = () => {
   const location = useLocation();
@@ -33,6 +35,7 @@ const App = () => {
         <Route path="/userpost" element={<UserPost />} />
         <Route path="/viewdetails" element={<ViewDetails />} />
         <Route path="/settings" element={<Setting />} />
+        <Route path="/admin" element={<AdminLogin />} />
       </Routes>
     </div>
   );
