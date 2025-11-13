@@ -3,6 +3,7 @@ import UserNavbar from './UserNavbar'
 import { FaPlus } from 'react-icons/fa';
 import UserCard from '../../components/UserCard';
 import { Link } from 'react-router-dom';
+import MorphingCard from '../../components/MorphingCard';
 
 
 const UserHome = () => {
@@ -124,13 +125,14 @@ const UserHome = () => {
   return (
     <div>
         <UserNavbar/>
-        <div className="min-h-screen bg-[#f4f2ee] text-gray-800 w-full flex flex-row">
+        <div className="min-h-screen bg-[#f4f2ee] text-gray-800 w-full flex flex-row mt-16">
           
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-25 ml-2">
-        {posts.map((post) => (
-          <UserCard key={post.id} post={post} />
-        ))}
+      <div className="min-h-screen bg-[#f4f2ee] p-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    {posts.map((post) => (
+      <MorphingCard key={post.id} post={post} />
+    ))}
+  </div>
       </div>
       </div>
      <div className="fixed bottom-6 right-6 z-50">
