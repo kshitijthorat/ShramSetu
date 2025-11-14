@@ -10,10 +10,8 @@ const Navbar = () => {
       const currentScrollY = window.scrollY;
 
       if (currentScrollY > lastScrollY) {
-        // Scrolling down → shrink navbar
         setIsSmall(true);
       } else {
-        // Scrolling up → expand navbar
         setIsSmall(false);
       }
 

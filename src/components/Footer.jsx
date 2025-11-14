@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <footer className="bg-blue-900 text-white py-8 mt-10 ">
+    <footer className="bg-blue-900 text-white py-8 mt-10">
       <div className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
         {/* Left Section - Logo & Tagline */}
         <div className="text-center md:text-left">
